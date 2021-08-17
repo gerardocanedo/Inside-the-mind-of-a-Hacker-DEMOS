@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hacker4Day</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <style>
+        body{
+           font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .search {
+           width: 100%;
+        }
+
+        .searchTerm {
+           width: 300px;
+           border: 3px solid #08d4b4;
+           padding: 5px;
+           height: 40px;
+           border-radius: 5px 5px 5px 5px;
+           outline: none;
+           color: #9DBFAF;
+           margin: 3px;
+           font-size: 16px;
+        }
+
+        .searchTerm:focus{
+           color: #08d4b4;
+        }
+
+        .searchButton {
+           width: 70px;
+           height: 40px;
+           border: 1px solid #08d4b4;
+           background: #08d4b4;
+           text-align: center;
+           color: #fff;
+           border-radius: 5px 5px 5px 5px;
+           cursor: pointer;
+           font-size: 16px;
+        }
+        .searchButtonlarge {
+           width: 80px;
+           height: 36px;
+           border: 1px solid #08d4b4;
+           background: #08d4b4;
+           text-align: center;
+           color: #fff;
+           border-radius: 5px 5px 5px 5px;
+           cursor: pointer;
+           font-size: 16px;
+        }
+    </style>
+    <style>
+        #invoice {
+           border-collapse: collapse;
+           width: 100%;
+        }
+
+        #invoice td, #invoice th {
+           border: 1px solid #ddd;
+           padding: 8px;
+        }
+
+        #invoice tr:nth-child(even){
+           background-color: #f2f2f2;
+        }
+
+        #invoice tr:hover {
+           background-color: #ddd;
+        }
+
+        #invoice th {
+           padding-top: 12px;
+           padding-bottom: 12px;
+           text-align: left;
+           background-color: #08d4b4;
+           color: white;
+        }
+     </style>
+</head>
+
+<body>
+    <section class="hero is-primary is-fullheight">
+
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="{{ url_for('index') }}" class="navbar-item">Home</a>
+                            <a href="{{ url_for('profile') }}" class="navbar-item">Profile</a>
+                            <a href="{{ url_for('login') }}" class="navbar-item">Login</a>
+                            <a href="{{ url_for('signup') }}" class="navbar-item">Sign Up</a>
+                            <a href="{{ url_for('invoices') }}" class="navbar-item">Invoices</a>
+                            <a href="{{ url_for('logout') }}" class="navbar-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+               {% block content %}
+               {% endblock %}
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Login</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/login">
+            <input class="searchTerm" type="username" name="username" placeholder="Your User" autofocus="">
+            <input class="searchTerm" type="password" name="password" placeholder="Your Password">
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+            </div>
+            <button class="searchButtonlarge">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

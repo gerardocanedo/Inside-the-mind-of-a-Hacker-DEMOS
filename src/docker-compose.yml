@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+  server:
+    build: ./apache-flask
+    ports:
+      - 80:80
+    environment:
+      #FLASK_DEBUG: 1
+      FLASK_APP: .
+      FLASK_DEBUG: 0
+    depends_on:
+      - db
+   
+  db:
+    build: ./sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432

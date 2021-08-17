@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+      <center>
+      <h3 class="title">Invoices</h3>
+      <br>
+      <div class="box">
+         <div class="search">
+            <form method="GET" action="/invoices">
+               <input type="text" class="searchTerm" name="Description" placeholder="Search by Description...">
+               <button class="searchButton"><i class="fa fa-search">Search</i></button>
+            </form>
+         </div>
+         <br>
+         {%- for message in get_flashed_messages() %}
+            {{ message }}
+         {%- endfor %}
+         
+         <table id="invoice">
+            <thead>
+               <tr>
+                  <th>Id</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+               </tr>
+            </thead>
+            
+            <tbody>
+               {% for invoice in invoices %}
+                  <tr>
+                     <td>{{ invoice[0] }}</td>
+                     <td>{{ invoice[1] }}</td>
+                     <td>{{ invoice[2] }}</td>
+                  </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+      </center>
+{% endblock %}
